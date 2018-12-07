@@ -1,26 +1,14 @@
 import Vue from 'vue'
 import './plugins/vuetify'
 import App from './App.vue'
-import store from './store'
-import router from './router'
+import store from './store/index'
+import router from './router/index'
 import './plugins/element-ui'
 import './plugins/cookies'
 import './plugins/axios'
-import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
+import './plugins/echarts'
 
 Vue.config.productionTip = false;
-
-// 导航守卫设置
-router.beforeEach((to, from, next) => {
-    // 顶部进度条
-    NProgress.start();
-    next();
-});
-// 导航结束之后做一些收尾工作
-router.afterEach(() => {
-    NProgress.done();
-});
 
 new Vue({
     store,

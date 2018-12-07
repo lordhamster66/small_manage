@@ -53,7 +53,7 @@
         <v-toolbar :clipped-left="$vuetify.breakpoint.lgAndUp" color="blue darken-3" dark app fixed>
             <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
                 <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-                <span class="hidden-sm-and-down">Small Manage</span>
+                <span class="hidden-sm-and-down">{{ this.$store.state.userInfo.username }}</span>
             </v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn icon>
@@ -69,18 +69,14 @@
             </v-btn>
         </v-toolbar>
         <v-content>
-            <v-container fluid fill-height>
-                <v-layout justify-center align-center>
+            <el-container class="myapp-container">
+                <el-main class="myapp-main">
                     <router-view/>
-                </v-layout>
-            </v-container>
-            <v-footer dark height="auto">
-                <v-card class="flex" flat tile>
-                    <v-card-actions class="grey darken-3 justify-center">
-                        &copy;2018 — <strong>Small Manage</strong>
-                    </v-card-actions>
-                </v-card>
-            </v-footer>
+                </el-main>
+                <el-footer class="myapp-footer" style="height: 30px;line-height: 30px">
+                    &copy;2018 — <strong>Small Manage</strong>
+                </el-footer>
+            </el-container>
         </v-content>
     </v-app>
 </template>
@@ -92,9 +88,9 @@
             drawer: null,
             items: [
                 {icon: 'home', text: '首页', index: '/'},
-                {icon: 'message', text: '实时短讯', index: '/about'},
-                {icon: 'list', text: '产品列表', index: '/about'},
-                {icon: 'show_chart', text: '统计页面', index: '/about'},
+                {icon: 'message', text: '实时短讯', index: '/news'},
+                {icon: 'list', text: '产品列表', index: '/products'},
+                {icon: 'show_chart', text: '统计页面', index: '/statics'},
             ],
         }),
         methods: {
@@ -105,6 +101,27 @@
     }
 </script>
 
-<style scoped>
+<style>
+    .myapp-container {
+        height: 100%
+    }
 
+    .myapp-main {
+        padding: 40px
+    }
+
+    .myapp-footer {
+        padding: 0;
+        text-align: center;
+        background-color: #444444;
+        color: white;
+    }
+
+    .myapp-panel {
+        background-color: white;
+        border: 1px solid #E0E0E0;
+        min-height: 60px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
 </style>

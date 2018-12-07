@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "echarts": "^4.2.0-rc.2",
     "element-ui": "^2.4.11",
+    "v-charts": "^1.19.0",
     "vue": "^2.5.17",
     "vue-axios": "^2.1.4",
     "vue-cookies": "^1.5.8",
